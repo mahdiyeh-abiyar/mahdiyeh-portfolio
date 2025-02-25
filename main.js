@@ -37,7 +37,7 @@ ELE.classList.add(localStorage.getItem("theme"));
 function downloadResume() {
   const link = document.createElement('a');
   link.style.display = 'none';
-  link.href = '/CV.pdf';
+  link.href = '/mahdiyeh-portfolio/assets/CV.pdf';
   link.setAttribute('download', 'Mahdiyeh_Abyiar_Resume.pdf'); 
   document.body.appendChild(link);
   link.click();
