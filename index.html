@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="dark:text-gray-200 dark:bg-slate-900 ">
+
+    <!-- Header Section -->
+    <header class="fixed w-full py-4 lg:px-0 px-5 z-[999] duration-300 opacity-80 xl:block">
+      <nav class="flex justify-between items-center max-w-6xl mx-auto px-2">
+          <div class="flex gap-4 items-center">
+              <!-- Profile Icon -->
+              <div class="bg-[#B59F78] text-white rounded-full size-10 text-xl grid place-items-center">M</div>
+              <!-- Profile Info -->
+              <div>
+                  <h4 class="font-bold text-lg uppercase">Mahdiyeh</h4>
+                  <p class="text-xs">Profile</p>
+              </div>
+          </div>
+          
+          <!-- Navigation Menu -->
+          <ul class="gap-10 md:flex hidden hover:*:text-primary *:duration-200">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" >About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" >Contact Us</a></li>
+              <li class="theme-switch">
+                  <i class="fa-solid fa-circle-half-stroke cursor-pointer"></i>
+              </li>
+          </ul>
+          
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-6">
+              <a href="#contact">
+                <button class="btn btn-outline md:!flex !hidden">
+                  <i class="fa-regular fa-paper-plane"></i> Let's Talk
+                </button>
+              </a>          
+              <span class="theme-switch md:hidden">
+                  <i class="fa-solid fa-circle-half-stroke cursor-pointer"></i>
+              </span>
+              <span id="menubar" class="cursor-pointer md:hidden text-xl">
+                  <i class="fa-solid fa-bars"></i>
+              </span>
+          </div>
+      </nav>
+    </header>
+
+    <!-- Backdrop for Mobile Menu -->
+    <span id="backdrop" class="fixed inset-0 w-full h-screen hidden bg-black/10 backdrop-blur-sm z-[997]"></span>
+
+    <!-- Mobile Navigation Menu -->
+    <ul id="mobile-nav" class="gap-10 text-xl md:hidden dark:bg-slate-800 bg-primary text-white flex-center flex-col fixed w-full h-0 overflow-hidden bottom-0 duration-200 rounded-t-3xl left-0 z-[998]">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <a href="#contact">
+          <button class="btn btn-outline">
+              <i class="fa-regular fa-paper-plane"></i> Let's Talk
+          </button>
+      </a>
+    </ul>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen container grid place-items-center relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-heroLight before:bg-no-repeat before:bg-top before:size-full before:-z-[1] before:transform before:-translate-x-1/2 dark:before:bg-heroDark">
+        <div class="w-full pt-20 grid md:grid-cols-6 h-full items-center max-w-6xl justify-around ">
+            
+            <!-- Text Content -->
+            <div class="lg:col-span-2 sm:pl-2 md:col-span-3 md:text-left text-center">
+                <h5 class="font-medium text-gray-600 dark:text-gray-200">Hello Welcome</h5>
+                <h1 class="sm:text-5xl text-4xl dark:text-white !leading-normal relative font-medium">
+                    I'm <span class="text-primary">Mahdiyeh Abiyar</span> <br />
+                    <span id="typed-text"></span>
+                </h1>
+                <!-- Buttons -->
+                <a href="mailto:mahdiehabyari@gmail.com">
+                  <button class="btn btn-filled mt-5">
+                    <i class="fa-regular fa-envelope !bg-primary"></i> Hire Me
+                  </button>
+                </a>
+                <button class="font-semibold dark:text-gray-200 border-b-2 border-gray-700 ml-4">
+                    <i class="fa-solid fa-up-right-from-square"></i> See Portfolio
+                </button>
+                
+                <!-- Social Media Links -->
+                <div class="flex items-center md:justify-start justify-center dark:text-gray-200 text-gray-600 gap-6 mt-9">
+                    <p class="text-xs">Follow Us</p>
+                    <div class="flex justify-end gap-3">
+                        <a href="https://github.com/mahdiyeh-abiyar" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mahdiyeh-abiyar" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="mailto:mahdiehabyari@gmail.com" class="social-icon"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Image -->
+            <div class="lg:col-span-2 md:col-span-3 md:ml-10">
+                <img src="./assets/person1.jpg" class="w-2/3 mx-auto md:w-full max-w-96 md:mt-0 mt-5 rounded-full" alt="Profile Image" />
+            </div>
+
+            <!-- Experience & Stats -->
+            <div class="lg:col-span-2 md:col-span-6 md:bg-none mt-2 bg-gradient-to-l dark:from-slate-800 from-gray-100 lg:h-96 md:h-auto h-96 w-full">
+                <ul class="text-2xl data-[slot=count]:*:text-3xl data-[slot=count]:*:font-bold leading-[3.14rem] text-center pt-5 lg:block md:flex items-center justify-between">
+                    <li data-slot="count">2+</li>
+                    <li>Year of <span class="text-primary">Experience</span></li>
+                    <br />
+                    <li data-slot="count">3+</li>
+                    <li>Completed <span class="text-primary">Projects</span></li>
+                    <li>
+                      <button class="btn btn-outline lg:mt-10 md:mt-0 mt-10" onclick="downloadResume()">
+                        <i class="fa-solid fa-download"></i> Download CV
+                      </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 ">
+      <div class="flex flex-col items-center justify-center w-full">
+        <div class=" p-8 rounded-lg  max-w-6xl w-full flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-10">
+          <div class="hidden md:block md:w-64 md:h-64 rounded-full overflow-hidden bg-primary">
+            <img class="w-full h-full object-cover opacity-90" src="assets/person2.jpg" alt="profile">
+          </div>          
+
+            <div class="md:w-2/3 flex-1 text-center md:text-left">
+                <h2 class="text-primary font-bold text-2xl md:text-3xl mb-3">About Me</h2>
+                <div class="flex flex-col md:flex-row gap-6 mb-6">
+                    <div class="border-2 border-primary p-5 rounded-3xl flex-1 text-center shadow-sm">
+                        <p class="text-lg font-semibold text-gray-400">Experience</p>
+                        <p class="text-gray-500 text-sm">2+ years</p>
+                        <p class="text-gray-500 text-sm">Frontend Development</p>
+                    </div>
+                    <div class="border-2 border-primary p-5 rounded-3xl flex-1 text-center shadow-sm">
+                        <p class="text-lg font-semibold text-gray-400">Education</p>
+                        <p class="text-gray-500 text-sm">Diploma in Computer Science</p>
+                        <p class="text-gray-500 text-sm">Sampad Saadi Technical High School</p>
+                    </div>
+                </div>
+                <p class="mb-3 opacity-80  text-justify">
+                    I'm a motivated student with a strong interest in web development, focusing on creating responsive websites and optimizing user experience. I have solid skills in HTML, CSS, JavaScript, and frameworks like React and Tailwind CSS, which I've applied in both individual and team projects.
+                    I’m always eager to learn and constantly look for ways to improve website performance and design using the latest techniques. I also highly value teamwork and communication, seeing them as essential to creating successful projects.
+                </p>
+            </div>
+        </div>
+    </div>
+        <!-- Skills Section Placeholder -->
+        <div class="mt-32 text-center">
+          <h2 class="text-primary text-3xl md:text-4xl font-bold mb-14">
+            My Skills
+          </h2>
+
+          <div class="flex flex-wrap items-center justify-center gap-12 md:gap-12">
+            <div class="skill" data-text="HTML">
+              <svg class="w-16  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 0h28l-2.547 28.75L15.969 32L4.552 28.75zm9.375 13l-.307-3.625l13.411.005l.307-3.495L7.213 5.88l.932 10.682h12.167l-.432 4.568L16 22.198l-3.938-1.078l-.255-2.813H8.328l.443 5.563L16 25.802l7.172-1.927l.99-10.875z"/></svg>
+            </div>
+          
+            <div class="skill" data-text="CSS">
+              <svg class="w-16 text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="m30 2l-4 23l-13.956 5L0 25l1.225-5.925H6.35l-.5 2.538l7.275 2.775l8.381-2.775l1.175-6.069H1.844l1-5.125H23.7l.656-3.294H3.519L4.538 2z"/></svg>
+            </div>
+          
+            <div class="skill" data-text="JavaScript">
+              <svg class="w-16  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 2v28h28V2zm15.238 21.837c0 2.725-1.6 3.969-3.931 3.969c-2.106 0-3.325-1.087-3.95-2.406l2.144-1.294c.413.731.788 1.35 1.694 1.35c.862 0 1.412-.338 1.412-1.656v-8.944h2.631zm6.224 3.969c-2.444 0-4.025-1.162-4.794-2.688l2.144-1.237c.563.919 1.3 1.6 2.594 1.6c1.087 0 1.788-.544 1.788-1.3c0-.9-.713-1.219-1.919-1.75l-.656-.281c-1.9-.806-3.156-1.825-3.156-3.969c0-1.975 1.506-3.475 3.85-3.475c1.675 0 2.875.581 3.738 2.106l-2.05 1.313c-.45-.806-.938-1.125-1.694-1.125c-.768 0-1.256.488-1.256 1.125c0 .788.488 1.106 1.619 1.6l.656.281c2.238.956 3.494 1.938 3.494 4.137c0 2.363-1.863 3.662-4.357 3.662z"/></svg>
+            </div>
+          
+            <div class="skill" data-text="Figma">
+              <svg class="w-16  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M16 16c0-7.109 10.667-7.109 10.667 0S16 23.109 16 16M5.333 26.667a5.33 5.33 0 0 1 5.333-5.333h5.333v5.333c0 7.109-10.667 7.109-10.667 0zM16 0v10.667h5.333c7.109 0 7.109-10.667 0-10.667zM5.333 5.333a5.33 5.33 0 0 0 5.333 5.333h5.333V-.001h-5.333a5.33 5.33 0 0 0-5.333 5.333zm0 10.667a5.33 5.33 0 0 0 5.333 5.333h5.333V10.666h-5.333a5.33 5.33 0 0 0-5.333 5.333z"/></svg>
+            </div>
+          
+            <div class="skill" data-text="Bootstrap">
+              <svg class="w-16  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M26.667 0H5.334A5.35 5.35 0 0 0 .001 5.333v21.333c0 2.932 2.401 5.333 5.333 5.333h21.333c2.932 0 5.333-2.401 5.333-5.333V5.333C32 2.401 29.599 0 26.667 0M23.75 22.474a4.2 4.2 0 0 1-1.229 1.646c-.563.453-1.271.828-2.146 1.094q-1.305.406-3.109.406H8.693V6.953h9.068c1.677 0 3.021.375 4.026 1.146c1.016.771 1.516 1.927 1.516 3.479q0 1.413-.688 2.411c-.688.998-1.12 1.182-1.974 1.542v.063c1.141.24 2.021.781 2.599 1.62s.88 1.901.88 3.182a5.3 5.3 0 0 1-.401 2.036l.031.036zm-3.703-4.599c-.542-.5-1.313-.745-2.302-.745h-5.766v5.823h5.781c.984 0 1.76-.255 2.307-.771s.823-1.25.823-2.188c-.01-.922-.276-1.635-.823-2.12h-.026zm-.797-3.766q.788-.671.786-1.927c0-.938-.234-1.604-.708-1.984c-.469-.38-1.146-.578-2.036-.578h-5.333v5.151h5.333c.776 0 1.443-.229 1.953-.661z"/></svg>
+            </div>
+
+            <div class="skill" data-text="TailwindCSS">
+              <svg class="w-16  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path fill="currentColor" d="M128 204.667C145.062 136.227 187.738 102 256 102c102.4 0 115.2 77 166.4 89.833c34.138 8.56 64-4.273 89.6-38.5C494.938 221.773 452.262 256 384 256c-102.4 0-115.2-77-166.4-89.833c-34.138-8.56-64 4.273-89.6 38.5m-128 154C17.062 290.227 59.738 256 128 256c102.4 0 115.2 77 166.4 89.833c34.138 8.56 64-4.273 89.6-38.5C366.938 375.773 324.262 410 256 410c-102.4 0-115.2-77-166.4-89.833c-34.138-8.56-64 4.273-89.6 38.5"/></svg>            </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Dots -->
+     <div class="flex items-center justify-between gap-3 w-full">
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-primary h-3 w-4"></div>
+        <div class="bg-gradient-to-r from-primary/60 to-primary/0 flex-grow h-3 "></div>
+     </div>
+
+    <!-- Portfolio Section -->
+<section id="projects" class="pt-32 flex justify-center items-center">
+  <div class="w-full md:w-5/6">
+    <h2 class="portfolio-heading text-center">
+      My Projects
+    </h2>
+    <ul class="w-full space-y-10 py-5">
+      <!-- Project List -->
+      <li class="portfolio-card">
+        <div class="relative w-full md:w-1/3 h-60 group overflow-hidden">
+          <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="assets/01.PNG" alt="">
+          <div class="absolute inset-0 bg-black/65 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-primary text-lg font-bold">HoshYar</p>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-2/3 p-5">
+          <h2 class="text-3xl font-bold mb-3">01</h2>
+          <p>Hoshyar is a platform for introducing AI models and tools across various domains. In addition to showcasing international tools, this platform identifies and presents Iranian examples to help increase their recognition.</p>
+          <div class="flex justify-between">
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <a href="https://github.com/mahdiyeh-abiyar/HoshYar.git" class="portfolio-link bg-primary">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937 15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109 2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74 1.011-2.135c-3.552-.401-7.287-1.776-7.287-7.907c0-1.751.62-3.177 1.645-4.297c-.177-.401-.719-2.031.141-4.235c0 0 1.339-.427 4.4 1.641a15.4 15.4 0 0 1 4-.541c1.36.009 2.719.187 4 .541c3.043-2.068 4.381-1.641 4.381-1.641c.859 2.204.317 3.833.161 4.235c1.015 1.12 1.635 2.547 1.635 4.297c0 6.145-3.74 7.5-7.296 7.891c.556.479 1.077 1.464 1.077 2.959c0 2.14-.02 3.864-.02 4.385c0 .416.28.916 1.104.755c6.4-2.093 10.979-8.093 10.979-15.156c0-8.833-7.161-16-16-16z"/></svg>
+                GitHub
+              </a>
+              <a href="#" class="portfolio-link bg-slate-900 dark:bg-primary">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="6.5"/><path d="M.5 7h13m-4 0A11.22 11.22 0 0 1 7 13.5A11.22 11.22 0 0 1 4.5 7A11.22 11.22 0 0 1 7 .5A11.22 11.22 0 0 1 9.5 7Z"/></g></svg>
+                Website
+              </a>
+            </div>
+  
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="HTML">
+                <svg class="w-7  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 0h28l-2.547 28.75L15.969 32L4.552 28.75zm9.375 13l-.307-3.625l13.411.005l.307-3.495L7.213 5.88l.932 10.682h12.167l-.432 4.568L16 22.198l-3.938-1.078l-.255-2.813H8.328l.443 5.563L16 25.802l7.172-1.927l.99-10.875z"/></svg>
+              </div>
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="CSS">
+                <svg class="w-7 text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="m30 2l-4 23l-13.956 5L0 25l1.225-5.925H6.35l-.5 2.538l7.275 2.775l8.381-2.775l1.175-6.069H1.844l1-5.125H23.7l.656-3.294H3.519L4.538 2z"/></svg>
+              </div>
+            
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="JavaScript">
+                <svg class="w-7  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 2v28h28V2zm15.238 21.837c0 2.725-1.6 3.969-3.931 3.969c-2.106 0-3.325-1.087-3.95-2.406l2.144-1.294c.413.731.788 1.35 1.694 1.35c.862 0 1.412-.338 1.412-1.656v-8.944h2.631zm6.224 3.969c-2.444 0-4.025-1.162-4.794-2.688l2.144-1.237c.563.919 1.3 1.6 2.594 1.6c1.087 0 1.788-.544 1.788-1.3c0-.9-.713-1.219-1.919-1.75l-.656-.281c-1.9-.806-3.156-1.825-3.156-3.969c0-1.975 1.506-3.475 3.85-3.475c1.675 0 2.875.581 3.738 2.106l-2.05 1.313c-.45-.806-.938-1.125-1.694-1.125c-.768 0-1.256.488-1.256 1.125c0 .788.488 1.106 1.619 1.6l.656.281c2.238.956 3.494 1.938 3.494 4.137c0 2.363-1.863 3.662-4.357 3.662z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+
+      <!-- Project List -->
+       <li class="portfolio-card">
+        <div class="relative w-full md:w-1/3 h-60 group overflow-hidden">
+          <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="assets/02.PNG" alt="">
+          <div class="absolute inset-0 bg-black/65 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-primary text-lg font-bold">Katrin</p>
+          </div>
+        </div>
+        <div class="w-full md:w-2/3 p-5">
+          <h2 class="text-3xl font-bold mb-3">02</h2>
+          <p>This project involves the design and development of the front-end of a website for the Katrin brand, which specializes in selling sugar, candy, and rock candy products. The website is built using HTML and CSS with the goal of providing a simple and user-friendly experience for customers, allowing them to easily find and purchase their desired products.</p>
+          <div class="flex justify-between">
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <a href="https://github.com/helia-lael/Space-Project.git" class="portfolio-link bg-primary">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937 15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109 2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74 1.011-2.135c-3.552-.401-7.287-1.776-7.287-7.907c0-1.751.62-3.177 1.645-4.297c-.177-.401-.719-2.031.141-4.235c0 0 1.339-.427 4.4 1.641a15.4 15.4 0 0 1 4-.541c1.36.009 2.719.187 4 .541c3.043-2.068 4.381-1.641 4.381-1.641c.859 2.204.317 3.833.161 4.235c1.015 1.12 1.635 2.547 1.635 4.297c0 6.145-3.74 7.5-7.296 7.891c.556.479 1.077 1.464 1.077 2.959c0 2.14-.02 3.864-.02 4.385c0 .416.28.916 1.104.755c6.4-2.093 10.979-8.093 10.979-15.156c0-8.833-7.161-16-16-16z"/></svg>
+                GitHub
+              </a>
+              <a href="https://mahdiyeh-abiyar.github.io/Katrin.github.io/" class="portfolio-link bg-slate-900 dark:bg-primary">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="6.5"/><path d="M.5 7h13m-4 0A11.22 11.22 0 0 1 7 13.5A11.22 11.22 0 0 1 4.5 7A11.22 11.22 0 0 1 7 .5A11.22 11.22 0 0 1 9.5 7Z"/></g></svg>
+                Website
+              </a>
+            </div>
+
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="HTML">
+                <svg class="w-7  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 0h28l-2.547 28.75L15.969 32L4.552 28.75zm9.375 13l-.307-3.625l13.411.005l.307-3.495L7.213 5.88l.932 10.682h12.167l-.432 4.568L16 22.198l-3.938-1.078l-.255-2.813H8.328l.443 5.563L16 25.802l7.172-1.927l.99-10.875z"/></svg>
+              </div>
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="CSS">
+                <svg class="w-7 text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="m30 2l-4 23l-13.956 5L0 25l1.225-5.925H6.35l-.5 2.538l7.275 2.775l8.381-2.775l1.175-6.069H1.844l1-5.125H23.7l.656-3.294H3.519L4.538 2z"/></svg>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </li>
+      <!-- Project List -->
+      <li class="portfolio-card">
+        <div class="relative w-full md:w-1/3 h-60 group overflow-hidden">
+          <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="assets/03.PNG" alt="">
+          <div class="absolute inset-0 bg-black/65 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <p class="text-primary text-lg font-bold">Marvi</p>
+          </div>
+        </div>
+        <div class="w-full md:w-2/3 p-5">
+          <h2 class="text-3xl font-bold mb-3">03</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolores obcaecati iusto quam similique minima aperiam velit beatae temporibus! Aperiam.</p>
+          <div class="flex justify-between">
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <a href="https://github.com/mahdiyeh-abiyar/restaurant-website.git" class="portfolio-link bg-primary">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937 15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109 2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74 1.011-2.135c-3.552-.401-7.287-1.776-7.287-7.907c0-1.751.62-3.177 1.645-4.297c-.177-.401-.719-2.031.141-4.235c0 0 1.339-.427 4.4 1.641a15.4 15.4 0 0 1 4-.541c1.36.009 2.719.187 4 .541c3.043-2.068 4.381-1.641 4.381-1.641c.859 2.204.317 3.833.161 4.235c1.015 1.12 1.635 2.547 1.635 4.297c0 6.145-3.74 7.5-7.296 7.891c.556.479 1.077 1.464 1.077 2.959c0 2.14-.02 3.864-.02 4.385c0 .416.28.916 1.104.755c6.4-2.093 10.979-8.093 10.979-15.156c0-8.833-7.161-16-16-16z"/></svg>
+                GitHub
+              </a>
+            </div>
+
+            <div class="mt-8 font-semibold text-white flex items-center gap-2">
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="HTML">
+                <svg class="w-7  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 0h28l-2.547 28.75L15.969 32L4.552 28.75zm9.375 13l-.307-3.625l13.411.005l.307-3.495L7.213 5.88l.932 10.682h12.167l-.432 4.568L16 22.198l-3.938-1.078l-.255-2.813H8.328l.443 5.563L16 25.802l7.172-1.927l.99-10.875z"/></svg>
+              </div>
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="CSS">
+                <svg class="w-7 text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="m30 2l-4 23l-13.956 5L0 25l1.225-5.925H6.35l-.5 2.538l7.275 2.775l8.381-2.775l1.175-6.069H1.844l1-5.125H23.7l.656-3.294H3.519L4.538 2z"/></svg>
+              </div>
+            
+              <div class="relative flex items-center justify-center bg-slate-800  dark:bg-primary w-[40px] h-[40px] rounded-full cursor-pointer" data-text="JavaScript">
+                <svg class="w-7  text-primary dark:text-slate-800" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="currentColor" d="M2 2v28h28V2zm15.238 21.837c0 2.725-1.6 3.969-3.931 3.969c-2.106 0-3.325-1.087-3.95-2.406l2.144-1.294c.413.731.788 1.35 1.694 1.35c.862 0 1.412-.338 1.412-1.656v-8.944h2.631zm6.224 3.969c-2.444 0-4.025-1.162-4.794-2.688l2.144-1.237c.563.919 1.3 1.6 2.594 1.6c1.087 0 1.788-.544 1.788-1.3c0-.9-.713-1.219-1.919-1.75l-.656-.281c-1.9-.806-3.156-1.825-3.156-3.969c0-1.975 1.506-3.475 3.85-3.475c1.675 0 2.875.581 3.738 2.106l-2.05 1.313c-.45-.806-.938-1.125-1.694-1.125c-.768 0-1.256.488-1.256 1.125c0 .788.488 1.106 1.619 1.6l.656.281c2.238.956 3.494 1.938 3.494 4.137c0 2.363-1.863 3.662-4.357 3.662z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          
+          </div>
+         
+      </li>
+
+
+
+
+      
+    </ul>
+  </div>
+</section>
+
+    
+
+    <!-- Contact -->
+    <section id="contact" class="w-full text-center mt-40 flex flex-col gap-12 justify-center items-center py-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary">Contact</h2>
+      <div class="flex flex-wrap justify-center gap-5 md:gap-10">
+        <a href="https://www.linkedin.com/in/mahdiyeh-abiyar" class="contact-link w-16 text-primary bg-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M5 3c0 1.062-.71 1.976-2.001 1.976C1.784 4.976 1 4.114 1 3.052C1 1.962 1.76 1 3 1s1.976.91 2 2M1 19V6h4v13zm6-8.556c0-1.545-.051-2.836-.102-3.951h3.594l.178 1.723h.076c.506-.811 1.746-2 3.822-2C17.1 6.216 19 7.911 19 11.558V19h-4v-6.861c0-1.594-.607-2.81-2-2.81c-1.062 0-1.594.86-1.873 1.569c-.102.254-.127.608-.127.963V19H7z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mahdieabyari/" class="contact-link w-16 text-primary bg-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M128 23.064c34.177 0 38.225.13 51.722.745c12.48.57 19.258 2.655 23.769 4.408c5.974 2.322 10.238 5.096 14.717 9.575s7.253 8.743 9.575 14.717c1.753 4.511 3.838 11.289 4.408 23.768c.615 13.498.745 17.546.745 51.723s-.13 38.226-.745 51.723c-.57 12.48-2.655 19.257-4.408 23.768c-2.322 5.974-5.096 10.239-9.575 14.718s-8.743 7.253-14.717 9.574c-4.511 1.753-11.289 3.839-23.769 4.408c-13.495.616-17.543.746-51.722.746s-38.228-.13-51.723-.746c-12.48-.57-19.257-2.655-23.768-4.408c-5.974-2.321-10.239-5.095-14.718-9.574c-4.479-4.48-7.253-8.744-9.574-14.718c-1.753-4.51-3.839-11.288-4.408-23.768c-.616-13.497-.746-17.545-.746-51.723s.13-38.225.746-51.722c.57-12.48 2.655-19.258 4.408-23.769c2.321-5.974 5.095-10.238 9.574-14.717c4.48-4.48 8.744-7.253 14.718-9.575c4.51-1.753 11.288-3.838 23.768-4.408c13.497-.615 17.545-.745 51.723-.745M128 0C93.237 0 88.878.147 75.226.77c-13.625.622-22.93 2.786-31.071 5.95c-8.418 3.271-15.556 7.648-22.672 14.764S9.991 35.738 6.72 44.155C3.555 52.297 1.392 61.602.77 75.226C.147 88.878 0 93.237 0 128s.147 39.122.77 52.774c.622 13.625 2.785 22.93 5.95 31.071c3.27 8.417 7.647 15.556 14.763 22.672s14.254 11.492 22.672 14.763c8.142 3.165 17.446 5.328 31.07 5.95c13.653.623 18.012.77 52.775.77s39.122-.147 52.774-.77c13.624-.622 22.929-2.785 31.07-5.95c8.418-3.27 15.556-7.647 22.672-14.763s11.493-14.254 14.764-22.672c3.164-8.142 5.328-17.446 5.95-31.07c.623-13.653.77-18.012.77-52.775s-.147-39.122-.77-52.774c-.622-13.624-2.786-22.929-5.95-31.07c-3.271-8.418-7.648-15.556-14.764-22.672S220.262 9.99 211.845 6.72c-8.142-3.164-17.447-5.328-31.071-5.95C167.122.147 162.763 0 128 0m0 62.27c-36.302 0-65.73 29.43-65.73 65.73s29.428 65.73 65.73 65.73c36.301 0 65.73-29.428 65.73-65.73c0-36.301-29.429-65.73-65.73-65.73m0 108.397c-23.564 0-42.667-19.103-42.667-42.667S104.436 85.333 128 85.333s42.667 19.103 42.667 42.667s-19.103 42.667-42.667 42.667m83.686-110.994c0 8.484-6.876 15.36-15.36 15.36s-15.36-6.876-15.36-15.36s6.877-15.36 15.36-15.36s15.36 6.877 15.36 15.36"/></svg>
+        </a>
+        <a href="https://t.me/mahdiyehabiyar" class="contact-link w-16 text-primary bg-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path fill="currentColor" d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0m-8 10c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m.358-12.618q-1.458.607-5.831 2.513q-.711.282-.744.552c-.038.304.343.424.862.587l.218.07c.51.166 1.198.36 1.555.368q.486.01 1.084-.4q4.086-2.76 4.218-2.789c.063-.014.149-.032.207.02c.059.052.053.15.047.177c-.038.161-1.534 1.552-2.308 2.271q-.344.324-.683.653c-.474.457-.83.8.02 1.36c.861.568 1.73 1.134 2.57 1.733c.414.296.786.56 1.246.519c.267-.025.543-.276.683-1.026c.332-1.77.983-5.608 1.133-7.19a1.8 1.8 0 0 0-.017-.393a.42.42 0 0 0-.142-.27c-.12-.098-.305-.118-.387-.117c-.376.007-.953.207-3.73 1.362"/></svg>
+        </a>
+        <a href="https://github.com/mahdiyeh-abiyar" class="contact-link w-16 text-primary bg-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3.5 15.668q.675.081 1 .618c.326.537 1.537 2.526 2.913 2.526H9.5m5.672-3.513q.823 1.078.823 1.936V21m-5.625-5.609q-.87.954-.869 1.813V21"/><path d="M15.172 15.299c1.202-.25 2.293-.682 3.14-1.316c1.448-1.084 2.188-2.758 2.188-4.411c0-1.16-.44-2.243-1.204-3.16c-.425-.511.819-3.872-.286-3.359c-1.105.514-2.725 1.198-3.574.947c-.909-.268-1.9-.416-2.936-.416c-.9 0-1.766.111-2.574.317c-1.174.298-2.296-.363-3.426-.848c-1.13-.484-.513 3.008-.849 3.422C4.921 7.38 4.5 8.44 4.5 9.572c0 1.653.895 3.327 2.343 4.41c.965.722 2.174 1.183 3.527 1.41"/></g></svg>
+        </a>
+        <a href="mailto:mahdiehabyari@gmail.com" class="contact-link w-16 text-primary bg-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7L4 8v10h16V8zm0-2l8-5H4zM4 8V6v12z"/></svg>
+        </a>
+      </div>
+    </section>
+      
+
+
+    <!-- Footer -->
+    <footer class="dark:bg-slate-700 bg-slate-100 text-center py-2">
+      Copyright &copy; Mahdiyeh Abiyar
+      <ul class="flex-center gap-5 py-4 text-sm">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about">About Us</a>
+        </li>
+        <li><a href="#projects">Projects</a></li>
+        <li>
+          <a href="#contact">Contact Us</a>
+        </li>
+      </ul>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+      const header = document.querySelector("header");
+
+      const toggleClasses = (element, classes, condition) => {
+        classes.forEach((className) => {
+          element.classList.toggle(className, condition);
+        });
+      };
+
+      window.addEventListener("scroll", () => {
+        toggleClasses(
+          header,
+          [
+            "shadow-lg",
+            "dark:sm:bg-slate-900",
+            "dark:bg-slate-800",
+            "dark:text-white",
+            "bg-white",
+          ],
+          window.scrollY > 0
+        );
+      });
+
+    </script>
+  </body>
+</html>
