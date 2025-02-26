@@ -34,21 +34,6 @@ options.forEach((item) =>
 ELE.classList.add(localStorage.getItem("theme"));
 
 
-function downloadResume() {
-  const link = document.createElement('a');
-  link.style.display = 'none';
-  link.href = './public/CV.pdf';
-  link.setAttribute('download', 'Mahdiyeh_Abyiar_Resume.pdf'); 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-
-window.downloadResume = downloadResume;
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const text = "Front-End Developer";
   let index = 0;
